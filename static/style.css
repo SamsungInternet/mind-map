@@ -1,0 +1,204 @@
+/* CSS files add styling rules to your content */
+
+html,body {
+  min-width: 100vw;
+  min-height:100vh;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  touch-action:none;
+  font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+  margin: 0;
+  --border-color: #ccc;
+  --shadow-color: #ffffc3;
+  --grid-color1: #ccc;
+  --grid-color2: #bbb;
+  --grid-width: 8em;
+  --subgrid-n: 4;
+  --thought-bg: #eee;
+  --thought-bg-dark: #ddd;
+  background-color:cadetblue;
+  background-image: 
+    linear-gradient(var(--grid-color1) 2px, transparent 2px),
+    linear-gradient(90deg, var(--grid-color1) 2px, transparent 2px),
+    linear-gradient(var(--grid-color2) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color2) 1px, transparent 1px);
+  background-size: var(--grid-width) var(--grid-width), var(--grid-width) var(--grid-width), calc(var(--grid-width) / var(--subgrid-n)) calc(var(--grid-width) / var(--subgrid-n)), calc(var(--grid-width) / var(--subgrid-n)) calc(var(--grid-width) / var(--subgrid-n));
+  background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px;
+  display: grid;
+  grid-template: min-content 1fr/1fr;
+}
+
+header {
+  padding: 1em;
+  margin: 0;
+  background: var(--thought-bg);
+  box-shadow: 0 0 2em -1em darkblue;
+}
+
+header > h1 {
+  font-style: italic;
+  color: #373fff;
+  text-decoration: underline;
+}
+
+header > button {
+  margin-left: 1em;
+  display: inline-block;
+  padding: 0.15em;
+  border-radius: 0.15em;
+  background: linear-gradient(yellow,orange);
+  border: 0;
+  box-shadow: 0 0 4px 2px #99330066;
+}
+
+main {
+  filter:url('#goo') drop-shadow(3px 3px 0 #3f696b);
+  touch-action: none;
+  pointer-events: all;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+#dropmessage {
+  content:'';
+  width: 80%;
+  height: 80%;
+  position:absolute;
+  pointer-events: none;
+  left: 10%;
+  top: 10%;
+  border: 4px dashed var(--grid-color1);
+  display: none;
+  box-shadow: 0 0 0 0.5em rgba(0,0,0,0.75);
+  background: rgba(0,0,0,0.75);
+  color: white;
+  text-align: center;
+  align-content: center;
+  font-size: 5vw;
+}
+
+#dropmessage.dragover {
+  display: grid;
+  cursor: grabbing;
+}
+
+pre, main {
+  grid-row: 2;
+  grid-column: 1;
+  overflow: hidden;
+}
+
+main.perf {
+  filter: none;
+}
+
+svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+svg {
+  pointer-events: none;
+}
+
+path.link {
+  stroke: var(--thought-bg);
+  stroke-width: 12px;
+  fill: none;
+}
+
+.linkTargeting {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+.linkTargeting > .thought > * {
+  pointer-events: none;
+}
+
+.linkTargeting > .thought:hover {
+  box-shadow: 0 0 8px green;
+}
+
+.thought {
+  --offsetX: 0;
+  --offsetY: 0;
+  --scale: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scale(var(--scale)) translate(-50%, -50%) translate(var(--offsetX), var(--offsetY));
+  border-radius: 1em;
+  background: var(--thought-bg);
+}
+
+.thought h1,h2,h3,h4,h5,h6 {
+  font-size: 1em;
+  border-bottom: 1px solid black;
+  margin: 1em;
+}
+
+.thought p {
+  margin: 1em;
+}
+
+.thought p img {
+  margin: -1em;
+  width: 200px;
+  height: auto;
+}
+
+
+.thought .button-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-auto-rows: min-content min-content;
+  justify-items: center;
+  background: var(--thought-bg-dark);
+  grid-gap: 0.5rem;
+}
+
+.thought-button {
+  background: transparent;
+  display: inline-block;
+  width: 1.8em;
+  height: 1.8em;
+  font-size: 1.25rem;
+  margin: 0.25em;
+  border: 0;
+  border-radius: 50%;
+}
+
+.thought-button + span {
+  display: none;
+  font-size: 0.8rem;
+  margin-bottom: 0.5em;
+  grid-row: 2;
+  text-align: center;
+}
+
+.hints .thought-button + span { 
+  display: inline-block;
+}
+
+.grabable {
+  cursor: grab;
+  cursor: -webkit-grab;
+}
+
+button:hover {
+  background: linear-gradient(yellow,orange);
+  box-shadow: 0 0 4px 2px #99330066;
+}
+
+button:active {
+  background: linear-gradient(to top,yellow,orange);
+  box-shadow: 0 0 3px 0 #99330066, inset 0 0 0.2em -0.05em #99330066;
+}

@@ -1,0 +1,42 @@
+{
+  "name": "mind-map",
+  "version": "1.0.0",
+  "description": "Some usefull description",
+  "main": "index.js",
+  "scripts": {
+    "start": "pnpm run build; node ./index.js",
+    "build": "rollup -c -i src/verlet.js -o .data/bundles/verlet.js; rollup -c -i src/hyperhtml.js -o .data/bundles/hyperhtml.js;"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apiaryio/npm-boilerplate"
+  },
+  "dependencies": {
+    "rollup": "^1.11.3",
+    "rollup-plugin-node-resolve": "^4.2.4",
+    "rollup-plugin-uglify": "^6.0.2",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-commonjs": "^9.3.1",
+    "verlet-system": "^1.0.15",
+    "verlet-point": "^1.2.1",
+    "verlet-constraint": "^1.1.0",
+    "express": "^4.16.4",
+    "hyperhtml": "^2.27.0",
+    "comlink": "^4.0.0",
+    "lodash.throttle": "^4.1.1",
+    "lodash-es": "^4.17.11",
+    "express-fileupload": "^1.1.4",
+    "sharp": "0.21.0",
+    "node-gyp": "^4.0.0",
+    "pouchdb": "^7.0.0",
+    "dialog-polyfill": "^0.5.0",
+    "body-parser": "^1.19.0"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "npm",
+    "boilerplate"
+  ],
+  "author": "Adam Kliment <adam@apiary.io>",
+  "license": "MIT"
+}
